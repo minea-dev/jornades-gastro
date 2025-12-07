@@ -102,6 +102,7 @@ El projecte utilitza **npm** per a la gestió de paquets i **Parcel** com a empa
 | ![img.png](img.png) | ![img_1.png](img_1.png) | ![img_2.png](img_2.png) | ![img_3.png](img_3.png)
 
 ## 🔗 Link
+https://jornades-gastro.netlify.app/
 
 ## ✍️ Autor
 
