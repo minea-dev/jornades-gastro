@@ -1,0 +1,156 @@
+@layer page-layout {
+  $poster-bg: $color-secondary;
+  $poster-ink: $color-text;
+  $poster-accent: $color-primary;
+  $border-thick: 4px;
+
+  .home-container {
+    container-type: inline-size;
+    container-name: home-wrapper;
+    min-height: 85vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bs-gray-100);
+  }
+
+  .poster {
+    width: 100%;
+    max-width: 500px;
+    background-color: $poster-bg;
+    border: $border-thick solid $poster-ink;
+    box-shadow: 15px 15px 0 $poster-ink;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 992px) {
+      max-width: 950px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    &__frame {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      overflow: hidden;
+      border-bottom: $border-thick solid $poster-ink;
+      position: relative;
+
+      @media (min-width: 992px) {
+        border-bottom: none;
+        border-right: $border-thick solid $poster-ink;
+      }
+
+      .poster__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(1.1) sepia(0.1);
+        transition: transform 0.4s ease;
+      }
+
+      &:hover .poster__image {
+        transform: scale(1.05);
+      }
+    }
+
+    &__content {
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__header { text-align: left; }
+
+    &__title {
+      font-family: $font-main;
+      color: $poster-ink;
+      font-weight: bold;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      line-height: 0.9;
+      text-shadow: 3px 3px 0 $poster-accent;
+
+      @container home-wrapper (min-width: 600px) {
+        font-size: 5rem;
+      }
+
+      @container home-wrapper (max-width: 599px) {
+        font-size: 3.5rem;
+      }
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      border-top: 2px solid $poster-ink;
+      padding-top: 2rem;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .icon-box {
+          width: 45px;
+          height: 45px;
+          background-color: $poster-ink;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+        }
+
+        strong {
+          display: block;
+          text-transform: uppercase;
+          font-size: 0.75rem;
+          color: #666;
+        }
+
+        span {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: $poster-ink;
+        }
+      }
+    }
+
+    .poster-btn {
+      background-color: $poster-ink;
+      color: white;
+      border: 2px solid $poster-ink;
+      border-radius: 0;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1px;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 0 transparent;
+
+      &:hover,
+      &:focus {
+        background-color: $poster-accent;
+        color: $poster-ink;
+        border-color: $poster-ink;
+        box-shadow: 5px 5px 0 $poster-ink;
+        transform: translateY(-2px);
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: translateY(-1px);
+        box-shadow: 2px 2px 0 $poster-ink;
+      }
+    }
+  }
+
+  @supports not (container-type: inline-size) {
+    .poster__title { font-size: 3rem; }
+  }
+}

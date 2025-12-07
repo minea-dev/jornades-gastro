@@ -1,0 +1,58 @@
+$gap-size: 2rem;
+$card-transition: transform 0.3s ease;
+
+@mixin card-component($padding: 1rem, $hover-lift: -5px) {
+  padding: $padding;
+  transition: $card-transition;
+
+  &:hover {
+    transform: translateY($hover-lift);
+  }
+}
+
+@layer components {
+  .cq-wrapper {
+    container-type: inline-size;
+    container-name: section-wrapper;
+  }
+
+  .speakers-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-size;
+    justify-content: center;
+
+    .speaker-card {
+      font-size: clamp(0.8rem, 3cqw, 1.1rem);
+
+      @include card-component(0, -10px);
+
+      flex: 1 1 100%;
+
+      @media (min-width: 576px) {
+        flex: 0 1 calc(50% - #{$gap-size} / 2);
+      }
+
+      @media (min-width: 992px) {
+        flex: 0 1 calc(33.333% - (#{$gap-size} * 2) / 3);
+      }
+
+      &__image-box {
+        transition: transform 0.3s ease-in-out;
+
+        .speaker-card:hover & {
+          background-color: #e9ecef !important;
+        }
+      }
+
+      &__name {
+        font-weight: 700;
+        margin-top: 0.5rem;
+      }
+
+      &__role {
+        font-style: italic;
+      }
+    }
+  }
+}

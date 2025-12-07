@@ -1,0 +1,88 @@
+$bg-form-hwb: hwb(0deg 98% 0%);
+$bg-sidebar-hwb: hwb(35deg 90% 0%);
+$focus-color-p3: color(display-p3 1 0.3 0);
+
+@layer page-contact {
+  .contact-page-wrapper {
+    container-type: inline-size;
+    container-name: contact-main;
+    min-height: 80svh;
+  }
+
+  .contact-form {
+    background-color: $bg-form-hwb;
+    border: 3px solid $color-text;
+    box-shadow: 10px 10px 0 $color-text;
+    border-radius: 0;
+    max-height: 90dvh;
+    overflow-y: auto;
+
+    label {
+      font-family: $font-main;
+      font-weight: 800;
+      color: $color-text;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .form-control, .form-select {
+      border: 2px solid $color-text;
+      border-radius: 0;
+      padding: 0.8rem;
+      background-color: #f8f9fa;
+
+      &:focus {
+        box-shadow: none;
+        border-color: $primary;
+
+        @supports (color: color(display-p3 1 0 0)) {
+          border-color: $focus-color-p3;
+          border-width: 3px;
+        }
+      }
+    }
+
+    .btn-primary {
+      border: 2px solid $color-text;
+      border-radius: 0;
+      background-color: $color-text;
+      color: white;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: $primary;
+        color: $color-text;
+        box-shadow: 5px 5px 0 $color-text;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .info-box {
+    background-color: $bg-sidebar-hwb;
+    border: 3px solid $color-text;
+    border-radius: 0;
+    min-height: 50lvh;
+
+    h3 {
+      color: $primary;
+      border-bottom: 2px solid $color-text;
+      padding-bottom: 1rem;
+    }
+  }
+
+  @container contact-main (min-width: 800px) {
+    .contact-form {
+      padding: 4rem !important;
+      h2 {
+        font-size: 4cqw;
+        color: $primary;
+      }
+    }
+
+    .info-box {
+      box-shadow: -10px 10px 0 $primary;
+      margin-left: 1rem;
+    }
+  }
+}

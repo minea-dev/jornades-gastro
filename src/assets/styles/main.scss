@@ -1,20 +1,12 @@
-/**
- * Use this file to import partials.
- * Do not include SCSS code in this file.
- */
+@import "variables";
 
- /**
- * Import dependencies
- */
-@use "dependencies";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 
-/**
- * Import layouts
- * It's a best practice to use a different partial for each page
- */
+@import "base/reset";
+@import "components/header";
+@import 'components/footer';
 
- @use "layouts/home";
-
-/**
- * Do NOT include anything else in this file!
- */
+@import "pages/home";
+@import "pages/speakers";
+@import "pages/article";
+@import "pages/contact";

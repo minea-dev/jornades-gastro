@@ -1,0 +1,125 @@
+@function solid-shadow($color, $size: 4px) {
+  @return $size $size 0 $color;
+}
+
+@layer page-content {
+  .gastronomia-article {
+    container-type: inline-size;
+    container-name: article-wrap;
+
+    background-color: white;
+    border: 3px solid $color-text;
+    box-shadow: solid-shadow($color-text, 10px);
+    padding: 2rem;
+    margin-bottom: 3rem;
+
+    .article-header {
+      border-bottom: 3px solid $color-text !important;
+
+      h1 {
+        font-family: $font-main;
+        letter-spacing: -1px;
+
+        text-shadow: 3px 3px 0 $primary;
+      }
+    }
+
+    .article-body {
+      font-family: $font-main;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: $color-text;
+
+
+      p:has(.highlight-marker) {
+        background-color: rgba($color-accent, 0.3);
+        border-left: 5px solid $primary;
+        padding: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      :is(h2, h3) {
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $primary;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+      }
+
+      :where(.tasting-list) {
+        list-style: none;
+        padding: 0;
+        border: 2px solid $color-text;
+        background-color: $color-secondary;
+
+        li {
+          padding: 1rem;
+          border-bottom: 1px solid $color-text;
+
+          &:last-child { border-bottom: none; }
+
+          &::before {
+            content: '👉';
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .chef-quote {
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: bold;
+        text-align: center;
+        background-color: $color-text;
+        color: white;
+        padding: 2.5rem;
+        margin: 3rem 0;
+
+        box-shadow: solid-shadow($primary, 8px);
+        transform: rotate(-1deg); // Efecto visual
+      }
+    }
+  }
+
+@container article-wrap (min-width: 768px) {
+    .gastronomia-article {
+      padding: 4rem;
+
+      .article-body {
+        .article-figure {
+          float: right;
+          width: 45%;
+          margin-left: 2rem;
+          margin-bottom: 1rem;
+          transform: rotate(2deg);
+        }
+
+        .lead {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+$card-border-width: 3px;
+
+.download-card {
+  border: $card-border-width solid $color-text;
+  border-radius: 0;
+  background-color: $color-accent;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: solid-shadow($color-text, 6px);
+  }
+
+  .btn {
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 2px solid $color-text;
+  }
+}

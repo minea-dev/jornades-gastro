@@ -1,67 +1,109 @@
-# UOC Boilerplate
+# 🥘 Jornades Gastronòmiques 2025 - Quart de Poblet
 
-UOC Boilerplate is a starter template for the HTML and CSS Tools courses from the [Master's Program in Multimedia Applications](https://estudis.uoc.edu/ca/masters-universitaris/aplicacions-multimedia/presentacio) and the [Master's Program in Web App and Website Development](https://estudis.uoc.edu/ca/masters-universitaris/desenvolupament-llocs-aplicacions-web/presentacio) at the [Universitat Oberta de Catalunya](https://www.uoc.edu). It aims to provide a basic, modern frontend web development starter pack based on Parcel and including a Sass compiler, an ES6 transpiler, minifiers, an image transformer, and development tools.
+> **"El Sabor de la Tradició"**
 
-This is the 3.x version of UOC Boilerplate, available since the UOC 2020-2 semester.
+Aquest projecte és el lloc web oficial i promocional per a les **Jornades Gastronòmiques de l'Arròs al Forn** a Quart de Poblet. Una experiència digital dissenyada per a ressaltar la cultura, la tradició i la innovació culinària local amb una estètica moderna i impactant.
 
-## Requirements
+![Estat](https://img.shields.io/badge/Estat-En_Desenvolupament-orange?style=for-the-badge)
+![Estil](https://img.shields.io/badge/Estil-Neo--Brutalisme-black?style=for-the-badge)
+![Stack](https://img.shields.io/badge/Stack-PostHTML_Sass_Parcel-blue?style=for-the-badge)
 
-[Node.js](http://nodejs.org/) >= 18.x
+## 🎨 Concepte de Disseny: Neo-Brutalisme Gastronòmic
 
-## Getting started
+El disseny s'allunya del minimalisme clàssic per abraçar una estètica **Neo-Brutalista** amb molta personalitat.
 
-Clone this repository with `git clone`, or download a .zip file using the top right green button.
+### Claus Visuals:
+* **Alt Contrast:** Ús predominant de Blanc i Negre (`$color-text`) amb accents vibrants en Taronja (`$primary`).
+* **Ombres Sòlides (Hard Shadows):** Elements amb ombres dures desplaçades (sense difuminar) que creen sensació de profunditat tàctil.
+* **Tipografia Bold:** Encapçalaments massius en majúscules.
+* **Vores Rectes:** Absència de `border-radius` (cantonades rectes) per a una aparença sòlida.
+* **Imatges Ultrapanoràmiques:** Ús de ràtios `21x9` amb marcs sòlids per a destacar la fotografia.
 
-Using the Terminal, navigate to the project folder and run `npm install`.
+## 📂 Estructura del Projecte
 
-## Features
+L'arquitectura de fitxers segueix l'estructura del **UOC Boilerplate**, organitzada per separar lògica, estils i vistes de manera modular:
 
-- Uses [Parcel v2](https://parceljs.org) module bundler.
-- NPM scripts for fast development and production build (see Commands below).
+```text
+uoc-boilerplate/
+├── .idea/               # Configuració de l'IDE
+├── .parcel-cache/       # Memòria cau del bundler
+├── dist/                # Arxius compilats per a producció
+├── node_modules/        # Dependències del projecte
+├── src/                 # Codi font principal
+│   ├── assets/
+│   │   ├── fonts/       # Tipografies locals
+│   │   ├── images/      # Imatges (s1-s6.png, a1.png, m.png...)
+│   │   ├── scripts/
+│   │   │   └── main.js  # Punt d'entrada JavaScript
+│   │   └── styles/      # Arxius SCSS
+│   │       ├── base/    # Reset, tipografia
+│   │       ├── components/
+│   │       ├── pages/   # Estils específics (_home.scss...)
+│   │       └── main.scss
+│   ├── pages/           # Pàgines HTML addicionals (contact, article)
+│   ├── views/           # Parcials HTML (header.html, footer.html)
+│   └── index.html       # Pàgina principal (Landing)
+├── .editorconfig        # Estils de codificació
+├── .gitignore
+├── .nvmrc               # Versió de Node recomanada
+├── .posthtmlrc          # Configuració de PostHTML (includes)
+├── .stylelintrc.json    # Regles de linter per a SCSS
+├── package.json         # Scripts i dependències
+├── package-lock.json
+└── README.md            # Documentació
+```
+## 🚀 Instal·lació i Ús
 
-### Stylesheets
+El projecte utilitza **npm** per a la gestió de paquets i **Parcel** com a empaquetador. Assegura't de tindre [Node.js](https://nodejs.org/) instal·lat.
 
-- [Sass/SCSS](https://sass-lang.com) to CSS compilation (`@parcel/transformer-sass`).
-- Transpilation of modern CSS synthax to support older bvrowsers, based on `browserslist`, including vendor prefixing and synthax lowering, with [PostCSS](https://postcss.org/) (`@parcel/transformer-postcss`).
-- Minification and optimization of CSS files on production builds with [`lightningcss`](https://github.com/parcel-bundler/lightningcss) (`@parcel/optimizer-css`).
+1.  **Instal·lar dependències:**
+    ```bash
+    npm install
+    ```
 
-### HTML
+2.  **Comandaments disponibles (Scripts):**
 
-- Minification and optimization of CSS files on production builds [`htmlnano`](https://github.com/posthtml/htmlnano) (`@parcel/optimizer-htmlnano`).
-- [PostHTML](https://github.com/posthtml/posthtml) (`@parcel/transformer-posthtml`) features:
-  - Include partial HTML files with [`posthtml-include`](https://github.com/posthtml/posthtml-include).
+    * **Desenvolupament (Dev Server):**
+        Neteja la memòria cau i arranca el servidor local al port **8123**.
+        ```bash
+        npm run dev
+        ```
+        > *Accedeix a: `http://localhost:8123`*
 
-### Scripts
+    * **Producció (Build):**
+        Compila i minifica els arxius per a pujar-los al servidor (genera la carpeta `dist` sense mapes de codi).
+        ```bash
+        npm run build
+        ```
 
-- Transpilation of modern JavaScript synthax to support older browsers, based on `browserslist`, with with [Babel](https://babeljs.io/) (`@parcel/transformer-babel`).
-- Minification and optimization of JS code with [SWC](https://swc.rs/) (`@parcel/optimizer-swc`).
+    * **Neteja (Clean):**
+        Esborra les carpetes `dist`, `.cache`, `.cache-loader` i `.parcel-cache` per si necessites reiniciar l'entorn.
+        ```bash
+        npm run clean
+        ```
 
-### Images
+    * **Qualitat de Codi (Linting):**
+        Revisa que els arxius SCSS complisquen amb les regles d'estil definides.
+        ```bash
+        npm run stylelint
+        ```
 
-- Image transformation with [`sharp`](https://sharp.pixelplumbing.com/) ([`@parcel/transformer-image`](https://parceljs.org/recipes/image/)).
+## 📖 Pàgines Principals
 
-### Development
+1.  **Home (Portada):** Disseny tipus pòster amb tipografia gegant, efectes *hover* interactius i crides a l'acció.
+2.  **Ponents (Xefs):** Grid de targetes presentant els 6 xefs (`s1` a `s6`) amb imatges personalitzades.
+3.  **Blog / Article:** Maquetació editorial per a notícies, amb imatges panoràmiques (`a1`, `a2`), cites destacades i seccions de contingut relacionat.
+4.  **Contacte:** Formulari estilitzat i mapa de localització (`m.png`) integrat visualment.
 
-- Development server launch and live reloading on file changes.
-- Friendly error reporting.
+## 📷 Galeria (Previsualització)
 
-## How to use this boilerplate
+| Portada (Hero) | Ponents | Article | Contacte |
+| :---: | :---: | :---: | :---: |
+| ![img.png](img.png) | ![img_1.png](img_1.png) | ![img_2.png](img_2.png) | ![img_3.png](img_3.png)
 
-Content lives inside the `src/` folder. If you do not want to change the configuration or are unsure about what you are doing, do not edit files outside the `src/` folder.
+## 🔗 Link
 
-Always run the following commands during the development stage and for production builds. Please note that it is expected that all projects built with this boilerplate are compiled using `npm run build` before they are published.
+## ✍️ Autor
 
-### Commands
+Minea Licer Silvestre
 
-| Command         | Description                                                                                                                                                                                                                                                                                                                                                         |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npm run dev`   | Runs a local web server for development and opens the browser to display it. Automatically compiles styles and scripts whenever a file in `src/` is changed, and live reloads the browser. This is what _must be run_ on the development stage.                                                                                                                     |
-| `npm run build` | Compiles and minifies and optimizes the files in the assets folder. The generated compiled and optimized files are located in the `dist/` folder. This is what _must be run_ before publishing the project. This is also the build command to be run by external deployment services such as Netlify. The publishable files are then located in the `dist/` folder. |
-| `npm run clean` | Deletes the current `/dist` folder and cache folders.                                                                                                                                                                                                                                                                                                               |
-| `npm run test`  | Displays a success message if everything is working as expected.                                                                                                                                                                                                                                                                                                    |
-
-## Need help? / Want to help out?
-
-Feel free to create a [new issue](https://github.com/uoc-advanced-html-css/uoc-boilerplate/issues/new/) or drop me a line at jorditarrida@uoc.edu.
-
-Are you using this Boilerplate for your projects or for educational purposes? I would love to hear about it!
