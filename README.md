@@ -36,7 +36,6 @@ uoc-boilerplate/
 │   │   ├── scripts/
 │   │   │   └── main.js  # Punt d'entrada JavaScript
 │   │   └── styles/      # Arxius SCSS
-│   │       ├── base/    # Reset, tipografia
 │   │       ├── components/
 │   │       ├── pages/   # Estils específics (_home.scss...)
 │   │       └── main.scss
